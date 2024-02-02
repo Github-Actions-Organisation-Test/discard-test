@@ -1,14 +1,14 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { ClientKafka } from "@nestjs/microservices";
 import { KafkaMessage } from "./KafkaMessage";
-import { MyMessageBrokerTopics } from "./topics";
+import { MyMessageBroker_1Topics } from "./topics";
 
 @Injectable()
 export class KafkaProducerService {
   constructor(@Inject("KAFKA_CLIENT") private kafkaClient: ClientKafka) {}
 
   async emitMessage(
-    topic: MyMessageBrokerTopics,
+    topic: MyMessageBroker_1Topics,
     message: KafkaMessage
   ): Promise<void> {
     return await new Promise((resolve, reject) => {
