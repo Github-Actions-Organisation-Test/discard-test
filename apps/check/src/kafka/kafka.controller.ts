@@ -17,4 +17,14 @@ export class KafkaController {
   ): Promise<void> {
     const message = context.getMessage();
   }
+
+  @EventPattern("topic.sample.v1")
+  async onTopicSampleV1(
+    @Payload()
+    value: string | Record<string, any> | null,
+    @Ctx()
+    context: KafkaContext
+  ): Promise<void> {
+    const message = context.getMessage();
+  }
 }
